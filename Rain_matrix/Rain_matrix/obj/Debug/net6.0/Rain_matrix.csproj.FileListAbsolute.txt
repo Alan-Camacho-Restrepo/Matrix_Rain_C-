@@ -1,0 +1,15 @@
+C:\Users\Alan\OneDrive\Documentos\Skills\C#\Matrix_Rain_C-\Rain_matrix\Rain_matrix\bin\Debug\net6.0\Rain_matrix.exe
+C:\Users\Alan\OneDrive\Documentos\Skills\C#\Matrix_Rain_C-\Rain_matrix\Rain_matrix\bin\Debug\net6.0\Rain_matrix.deps.json
+C:\Users\Alan\OneDrive\Documentos\Skills\C#\Matrix_Rain_C-\Rain_matrix\Rain_matrix\bin\Debug\net6.0\Rain_matrix.runtimeconfig.json
+C:\Users\Alan\OneDrive\Documentos\Skills\C#\Matrix_Rain_C-\Rain_matrix\Rain_matrix\bin\Debug\net6.0\Rain_matrix.dll
+C:\Users\Alan\OneDrive\Documentos\Skills\C#\Matrix_Rain_C-\Rain_matrix\Rain_matrix\bin\Debug\net6.0\Rain_matrix.pdb
+C:\Users\Alan\OneDrive\Documentos\Skills\C#\Matrix_Rain_C-\Rain_matrix\Rain_matrix\obj\Debug\net6.0\Rain_matrix.csproj.AssemblyReference.cache
+C:\Users\Alan\OneDrive\Documentos\Skills\C#\Matrix_Rain_C-\Rain_matrix\Rain_matrix\obj\Debug\net6.0\Rain_matrix.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Alan\OneDrive\Documentos\Skills\C#\Matrix_Rain_C-\Rain_matrix\Rain_matrix\obj\Debug\net6.0\Rain_matrix.AssemblyInfoInputs.cache
+C:\Users\Alan\OneDrive\Documentos\Skills\C#\Matrix_Rain_C-\Rain_matrix\Rain_matrix\obj\Debug\net6.0\Rain_matrix.AssemblyInfo.cs
+C:\Users\Alan\OneDrive\Documentos\Skills\C#\Matrix_Rain_C-\Rain_matrix\Rain_matrix\obj\Debug\net6.0\Rain_matrix.csproj.CoreCompileInputs.cache
+C:\Users\Alan\OneDrive\Documentos\Skills\C#\Matrix_Rain_C-\Rain_matrix\Rain_matrix\obj\Debug\net6.0\Rain_matrix.dll
+C:\Users\Alan\OneDrive\Documentos\Skills\C#\Matrix_Rain_C-\Rain_matrix\Rain_matrix\obj\Debug\net6.0\refint\Rain_matrix.dll
+C:\Users\Alan\OneDrive\Documentos\Skills\C#\Matrix_Rain_C-\Rain_matrix\Rain_matrix\obj\Debug\net6.0\Rain_matrix.pdb
+C:\Users\Alan\OneDrive\Documentos\Skills\C#\Matrix_Rain_C-\Rain_matrix\Rain_matrix\obj\Debug\net6.0\Rain_matrix.genruntimeconfig.cache
+C:\Users\Alan\OneDrive\Documentos\Skills\C#\Matrix_Rain_C-\Rain_matrix\Rain_matrix\obj\Debug\net6.0\ref\Rain_matrix.dll
