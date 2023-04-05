@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "Y9DPWBNeS5Y6145X1GbxAbw77Hc+4sk3rO6sHGXYkleZdhDC+Bw09Ks2+8d2CyfWCA8QBo8jyqsNJgF5ilT+Aw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Alan\\OneDrive\\Documentos\\Skills\\C#\\guics-test\\guics-test.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Alan\\.nuget\\packages\\microsoft.dotnet.platformabstractions\\3.1.6\\microsoft.dotnet.platformabstractions.3.1.6.nupkg.sha512",
+    "C:\\Users\\Alan\\.nuget\\packages\\nstack.core\\1.0.7\\nstack.core.1.0.7.nupkg.sha512",
+    "C:\\Users\\Alan\\.nuget\\packages\\system.codedom\\7.0.0\\system.codedom.7.0.0.nupkg.sha512",
+    "C:\\Users\\Alan\\.nuget\\packages\\system.management\\7.0.0\\system.management.7.0.0.nupkg.sha512",
+    "C:\\Users\\Alan\\.nuget\\packages\\system.valuetuple\\4.5.0\\system.valuetuple.4.5.0.nupkg.sha512",
+    "C:\\Users\\Alan\\.nuget\\packages\\terminal.gui\\1.10.0\\terminal.gui.1.10.0.nupkg.sha512"
+  ],
+  "logs": []
+}
