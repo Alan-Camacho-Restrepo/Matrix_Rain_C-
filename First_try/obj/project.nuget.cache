@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "F+vByRE++Wr6V+1PdPbcv28QAPcD7X2IB/yrlRAhb7BTVbVM2LtpNA2riU3IdyXeT6zonXOmqVK8/aIBiundHg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Alan\\OneDrive\\Documentos\\Skills\\C#\\Matrix_Rain_C-\\First_try\\First_try.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Alan\\.nuget\\packages\\microsoft.dotnet.platformabstractions\\3.1.6\\microsoft.dotnet.platformabstractions.3.1.6.nupkg.sha512",
+    "C:\\Users\\Alan\\.nuget\\packages\\nstack.core\\1.0.7\\nstack.core.1.0.7.nupkg.sha512",
+    "C:\\Users\\Alan\\.nuget\\packages\\system.codedom\\7.0.0\\system.codedom.7.0.0.nupkg.sha512",
+    "C:\\Users\\Alan\\.nuget\\packages\\system.management\\7.0.0\\system.management.7.0.0.nupkg.sha512",
+    "C:\\Users\\Alan\\.nuget\\packages\\system.valuetuple\\4.5.0\\system.valuetuple.4.5.0.nupkg.sha512",
+    "C:\\Users\\Alan\\.nuget\\packages\\terminal.gui\\1.10.1\\terminal.gui.1.10.1.nupkg.sha512"
+  ],
+  "logs": []
+}

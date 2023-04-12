@@ -1,78 +1,80 @@
-﻿// A simple Terminal.Gui example in C# - using C# 9.0 Top-level statements
+﻿using Terminal.Gui;
 
-using Terminal.Gui;
-
-Application.Run<ExampleWindow>();
-
-System.Console.WriteLine($"Username: {((ExampleWindow)Application.Top).usernameText.Text}");
-
-// Before the application exits, reset Terminal.Gui for clean shutdown
-Application.Shutdown();
-
-// Defines a top-level window with border and title
-public class ExampleWindow : Window
+class Program
 {
-    public TextField usernameText;
 
-    public ExampleWindow()
+    static void Main(string[] args)
     {
-        Title = "Example App (Ctrl+Q to quit)";
-
-        // Create input components and labels
-        var usernameLabel = new Label()
+        Application.Init();
+        for (int i = 0; i < 2; i++)
         {
-            Text = "Username:"
-        };
+            var waterDrop = new WaterDrop(Application.MainLoop);
+            Application.Top.Add(waterDrop);
+        }
 
-        usernameText = new TextField("")
-        {
-            // Position text field adjacent to the label
-            X = Pos.Right(usernameLabel) + 1,
 
-            // Fill remaining horizontal space
-            Width = Dim.Fill(),
-        };
-
-        var passwordLabel = new Label()
-        {
-            Text = "Password:",
-            X = Pos.Left(usernameLabel),
-            Y = Pos.Bottom(usernameLabel) + 1
-        };
-
-        var passwordText = new TextField("")
-        {
-            Secret = true,
-            // align with the text box above
-            X = Pos.Left(usernameText),
-            Y = Pos.Top(passwordLabel),
-            Width = Dim.Fill(),
-        };
-
-        // Create login button
-        var btnLogin = new Button()
-        {
-            Text = "Login",
-            Y = Pos.Bottom(passwordLabel) + 1,
-            // center the login button horizontally
-            X = Pos.Center(),
-            IsDefault = true,
-        };
-
-        // When login button is clicked display a message popup
-        btnLogin.Clicked += () => {
-            if (usernameText.Text == "admin" && passwordText.Text == "password")
-            {
-                MessageBox.Query("Logging In", "Login Successful", "Ok");
+        Application.MainLoop.AddTimeout(
+            TimeSpan.FromSeconds(100),
+            (MainLoop ml) => {
                 Application.RequestStop();
+                return true;
             }
-            else
-            {
-                MessageBox.ErrorQuery("Logging In", "Incorrect username or password", "Ok");
-            }
-        };
+        );
 
-        // Add the views to the Window
-        Add(usernameLabel, usernameText, passwordLabel, passwordText, btnLogin);
+        Application.Run();
+        Application.Shutdown();
+
     }
+
+}
+
+
+class WaterDrop : Label
+{
+    List<string> line = new List<string>();
+    int column = 0;
+    Random rand = new Random();
+
+    public WaterDrop(MainLoop mainLoop) : base("", TextDirection.TopBottom_LeftRight)
+    {
+        this.X = column;
+        mainLoop.AddTimeout(
+                TimeSpan.FromSeconds(2),
+                updateLabel
+            );
+        column = column + 1;
+    }
+
+    private string getRandomChar()
+    {
+        List<string> possibleChars = new List<string>();
+
+        // possibleChars.Add($"{(char)('\u3041' + rand.Next(0, 3096 - 3041 + 1))}");
+        // possibleChars.Add($"{(char)('a' + rand.Next(0, 26))}");
+
+        // possibleChars.Add($"{rand.Next(0, 10)}");
+        possibleChars.Add("a");
+
+        // return possibleChars[rand.Next(0, possibleChars.Count)];
+        return possibleChars[0];
+    }
+
+    private void updateLine()
+    {
+        line.Add(getRandomChar());
+
+        //for (int i = 0; i < line.Count; i++)
+        //{
+        //    if (rand.NextDouble() < 0.2)
+        //        line[i] = getRandomChar();
+        //}
+    }
+
+    private bool updateLabel(MainLoop mainLoop)
+    {
+        updateLine();
+        this.Text = string.Join("", line);
+        return true;
+    }
+
 }
