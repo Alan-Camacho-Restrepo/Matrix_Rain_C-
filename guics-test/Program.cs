@@ -6,7 +6,7 @@ class Program
     static void Main(string[] args)
     {
         Application.Init();
-        for (int i = 0; i < 2; i++)
+        for (int i = 0; i < 20; i++)
         {
             var waterDrop = new WaterDrop(Application.MainLoop);
             Application.Top.Add(waterDrop);
@@ -15,7 +15,8 @@ class Program
 
         Application.MainLoop.AddTimeout(
             TimeSpan.FromSeconds(100),
-            (MainLoop ml) => {
+            (MainLoop ml) =>
+            {
                 Application.RequestStop();
                 return true;
             }
@@ -32,17 +33,19 @@ class Program
 class WaterDrop : Label
 {
     List<string> line = new List<string>();
-    int column = 0;
+    static int column = 0;
+    static double v = 1;
     Random rand = new Random();
 
     public WaterDrop(MainLoop mainLoop) : base("", TextDirection.TopBottom_LeftRight)
     {
         this.X = column;
         mainLoop.AddTimeout(
-                TimeSpan.FromSeconds(2),
+                TimeSpan.FromSeconds(v),
                 updateLabel
             );
         column = column + 1;
+        v = v + 0.1;
     }
 
     private string getRandomChar()
@@ -50,13 +53,13 @@ class WaterDrop : Label
         List<string> possibleChars = new List<string>();
 
         // possibleChars.Add($"{(char)('\u3041' + rand.Next(0, 3096 - 3041 + 1))}");
-        // possibleChars.Add($"{(char)('a' + rand.Next(0, 26))}");
+        for (int i = 0; i < 10; i++)
+        {
+            possibleChars.Add($"{(char)('a' + rand.Next(0, 26))}");
+            possibleChars.Add($"{rand.Next(0, 10)}");
+        }
 
-        // possibleChars.Add($"{rand.Next(0, 10)}");
-        possibleChars.Add("a");
-
-        // return possibleChars[rand.Next(0, possibleChars.Count)];
-        return possibleChars[0];
+        return possibleChars[rand.Next(0, possibleChars.Count)];
     }
 
     private void updateLine()
