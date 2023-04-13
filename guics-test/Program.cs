@@ -1,20 +1,21 @@
-﻿using Terminal.Gui;
+﻿using System.Security.Principal;
+using Terminal.Gui;
 
-class Program
-{
+class Program{     // Principal class to contain the main method 
 
-    static void Main(string[] args)
+
+    static void Main(string[] args)    // The main method where everything shows in terminal
     {
-        Application.Init();
-        for (int i = 0; i < 20; i++)
-        {
+        Application.Init();     // Initialize the terminal.gui application to show in terminal7
+
+        for (int i = 0; i < 100; i++){
             var waterDrop = new WaterDrop(Application.MainLoop);
-            Application.Top.Add(waterDrop);
-        }
+            Application.Top.Add(waterDrop);  
+            }
 
 
-        Application.MainLoop.AddTimeout(
-            TimeSpan.FromSeconds(100),
+        Application.MainLoop.AddTimeout(    // Living time of programming
+            TimeSpan.FromSeconds(100),      // there are 100 seconds of live time
             (MainLoop ml) =>
             {
                 Application.RequestStop();
@@ -30,22 +31,21 @@ class Program
 }
 
 
-class WaterDrop : Label
+class WaterDrop : Label           // Class to create an individual rain of letters, with special characters and random drop speed
 {
     List<string> line = new List<string>();
-    static int column = 0;
-    static double v = 1;
+    static int column = 0;       // inmutable variable to change the value in each call of the method
     Random rand = new Random();
+    bool drop = false;
 
     public WaterDrop(MainLoop mainLoop) : base("", TextDirection.TopBottom_LeftRight)
     {
-        this.X = column;
+        this.X = column;    // like self in python (this)
+        column++;
         mainLoop.AddTimeout(
-                TimeSpan.FromSeconds(v),
+                TimeSpan.FromSeconds(1),   // random drop speed for each column in terminal
                 updateLabel
             );
-        column = column + 1;
-        v = v + 0.1;
     }
 
     private string getRandomChar()
@@ -55,8 +55,8 @@ class WaterDrop : Label
         // possibleChars.Add($"{(char)('\u3041' + rand.Next(0, 3096 - 3041 + 1))}");
         for (int i = 0; i < 10; i++)
         {
-            possibleChars.Add($"{(char)('a' + rand.Next(0, 26))}");
-            possibleChars.Add($"{rand.Next(0, 10)}");
+            possibleChars.Add($"{(char)('a' + rand.Next(0, 26))}");  // latin alphabet
+            possibleChars.Add($"{rand.Next(0, 10)}");   // numbers
         }
 
         return possibleChars[rand.Next(0, possibleChars.Count)];
@@ -64,6 +64,8 @@ class WaterDrop : Label
 
     private void updateLine()
     {
+
+        
         line.Add(getRandomChar());
 
         //for (int i = 0; i < line.Count; i++)
@@ -73,10 +75,24 @@ class WaterDrop : Label
         //}
     }
 
-    private bool updateLabel(MainLoop mainLoop)
+    bool updateDrop()
     {
-        updateLine();
-        this.Text = string.Join("", line);
+        if(rand.NextDouble() > 0.8)
+        {
+            drop = true;
+        }
+
+        return drop;
+    }
+
+    private bool updateLabel(MainLoop mainLoop)  // method to pass in the mainloop of each column
+    {
+        // updateLine();
+        if (updateDrop())
+        {
+            line.Add(getRandomChar());
+            this.Text = string.Join("", line);
+        }
         return true;
     }
 
