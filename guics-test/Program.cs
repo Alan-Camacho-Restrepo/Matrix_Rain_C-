@@ -1,4 +1,4 @@
-﻿using System.Security.Principal;
+﻿using System;
 using Terminal.Gui;
 
 class Program{     // Principal class to contain the main method 
@@ -6,9 +6,13 @@ class Program{     // Principal class to contain the main method
 
     static void Main(string[] args)    // The main method where everything shows in terminal
     {
-        Application.Init();     // Initialize the terminal.gui application to show in terminal7
+        Application.Init();     // Initialize the terminal.gui application to show in terminal
 
-        for (int i = 0; i < 100; i++){
+        // Get terminal window size
+        var cols = Console.WindowWidth;
+        var rows = Console.WindowHeight;
+
+        for (int i = 0; i < cols; i++){
             var waterDrop = new WaterDrop(Application.MainLoop);
             Application.Top.Add(waterDrop);  
             }
@@ -41,9 +45,10 @@ class WaterDrop : Label           // Class to create an individual rain of lette
     public WaterDrop(MainLoop mainLoop) : base("", TextDirection.TopBottom_LeftRight)
     {
         this.X = column;    // like self in python (this)
+        //this.Visible = false;
         column++;
         mainLoop.AddTimeout(
-                TimeSpan.FromSeconds(1),   // random drop speed for each column in terminal
+                TimeSpan.FromSeconds(0.3),   // random drop speed for each column in terminal
                 updateLabel
             );
     }
@@ -55,29 +60,29 @@ class WaterDrop : Label           // Class to create an individual rain of lette
         // possibleChars.Add($"{(char)('\u3041' + rand.Next(0, 3096 - 3041 + 1))}");
         for (int i = 0; i < 10; i++)
         {
-            possibleChars.Add($"{(char)('a' + rand.Next(0, 26))}");  // latin alphabet
-            possibleChars.Add($"{rand.Next(0, 10)}");   // numbers
+            // possibleChars.Add($"{(char)('a' + rand.Next(0, 26))}");  // latin alphabet
+            // possibleChars.Add($"{rand.Next(0, 10)}");   // numbers
+            possibleChars.Add($"{(char)(0x3041 + rand.Next(0, 0x3096 - 0x3041 + 1))}");  // Hiragana characters
+            possibleChars.Add($"{(char)(0x30A1 + rand.Next(0, 0x30FA - 0x30A1 + 1))}");  // Katakana characters
         }
 
         return possibleChars[rand.Next(0, possibleChars.Count)];
     }
-
+    
     private void updateLine()
     {
-
-        
         line.Add(getRandomChar());
 
-        //for (int i = 0; i < line.Count; i++)
-        //{
-        //    if (rand.NextDouble() < 0.2)
-        //        line[i] = getRandomChar();
-        //}
+        for (int i = 0; i < line.Count; i++)
+        {
+            if (rand.NextDouble() < 0.4)
+                line[i] = getRandomChar();
+        }
     }
 
     bool updateDrop()
     {
-        if(rand.NextDouble() > 0.8)
+        if(rand.NextDouble() > 0.99)
         {
             drop = true;
         }
@@ -90,7 +95,12 @@ class WaterDrop : Label           // Class to create an individual rain of lette
         // updateLine();
         if (updateDrop())
         {
-            line.Add(getRandomChar());
+            updateLine();
+            if (line.Count > Console.WindowHeight)
+            {
+                line = new List<string>();
+                drop = false;
+            }
             this.Text = string.Join("", line);
         }
         return true;
