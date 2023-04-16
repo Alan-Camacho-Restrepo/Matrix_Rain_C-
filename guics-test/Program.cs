@@ -41,11 +41,11 @@ class WaterDrop : Label           // Class to create an individual rain of lette
     static int column = 0;       // inmutable variable to change the value in each call of the method
     Random rand = new Random();
     bool drop = false;
+    int idx = 0;
 
     public WaterDrop(MainLoop mainLoop) : base("", TextDirection.TopBottom_LeftRight)
     {
         this.X = column;    // like self in python (this)
-        //this.Visible = false;
         column++;
         mainLoop.AddTimeout(
                 TimeSpan.FromSeconds(0.3),   // random drop speed for each column in terminal
@@ -58,12 +58,12 @@ class WaterDrop : Label           // Class to create an individual rain of lette
         List<string> possibleChars = new List<string>();
 
         // possibleChars.Add($"{(char)('\u3041' + rand.Next(0, 3096 - 3041 + 1))}");
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < 100; i++)
         {
-            // possibleChars.Add($"{(char)('a' + rand.Next(0, 26))}");  // latin alphabet
+            possibleChars.Add($"{(char)('a' + rand.Next(0, 26))}");  // latin alphabet
             // possibleChars.Add($"{rand.Next(0, 10)}");   // numbers
-            possibleChars.Add($"{(char)(0x3041 + rand.Next(0, 0x3096 - 0x3041 + 1))}");  // Hiragana characters
-            possibleChars.Add($"{(char)(0x30A1 + rand.Next(0, 0x30FA - 0x30A1 + 1))}");  // Katakana characters
+            //possibleChars.Add($"{(char)(0x3041 + rand.Next(0, 0x3096 - 0x3041 + 1))}");  // Hiragana characters
+            //possibleChars.Add($"{(char)(0x30A1 + rand.Next(0, 0x30FA - 0x30A1 + 1))}");  // Katakana characters
         }
 
         return possibleChars[rand.Next(0, possibleChars.Count)];
@@ -73,12 +73,25 @@ class WaterDrop : Label           // Class to create an individual rain of lette
     {
         line.Add(getRandomChar());
 
-        for (int i = 0; i < line.Count; i++)
+        for (int i = idx; i < line.Count; i++)
         {
             if (rand.NextDouble() < 0.4)
                 line[i] = getRandomChar();
         }
+
+        if (line.Count > Console.WindowHeight)
+        {
+            line[idx] = " ";  // Replace the character with a space
+            idx++;
+            if (idx == Console.WindowHeight)
+            {
+                idx = 0;
+                line = new List<string>();
+            }
+            
+        }
     }
+
 
     bool updateDrop()
     {
@@ -96,13 +109,17 @@ class WaterDrop : Label           // Class to create an individual rain of lette
         if (updateDrop())
         {
             updateLine();
-            if (line.Count > Console.WindowHeight)
-            {
-                line = new List<string>();
-                drop = false;
-            }
+            //if (line.Count > Console.WindowHeight)
+            //{
+            //    // line = new List<string>();
+            //    // line[0] = " ";
+            //    //line.Clear();
+            //    // line.RemoveAt(0);
+            //    drop = false;
+            //}
             this.Text = string.Join("", line);
         }
+
         return true;
     }
 
