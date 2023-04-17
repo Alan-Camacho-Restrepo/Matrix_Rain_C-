@@ -10,16 +10,15 @@ class Program{     // Principal class to contain the main method
 
         // Get terminal window size
         var cols = Console.WindowWidth;
-        var rows = Console.WindowHeight;
 
         for (int i = 0; i < cols; i++){
             var waterDrop = new WaterDrop(Application.MainLoop);
             Application.Top.Add(waterDrop);  
             }
 
-
+        // Set finite time of running code in the window terminal
         Application.MainLoop.AddTimeout(    // Living time of programming
-            TimeSpan.FromSeconds(100),      // there are 100 seconds of live time
+            TimeSpan.FromSeconds(120),      // there are 120 seconds of live time
             (MainLoop ml) =>
             {
                 Application.RequestStop();
@@ -46,6 +45,7 @@ class WaterDrop : Label           // Class to create an individual rain of lette
     public WaterDrop(MainLoop mainLoop) : base("", TextDirection.TopBottom_LeftRight)
     {
         this.X = column;    // like self in python (this)
+        // this.ColorScheme = Colors.TopLevel;
         column++;
         mainLoop.AddTimeout(
                 TimeSpan.FromSeconds(0.3),   // random drop speed for each column in terminal
@@ -57,13 +57,17 @@ class WaterDrop : Label           // Class to create an individual rain of lette
     {
         List<string> possibleChars = new List<string>();
 
-        // possibleChars.Add($"{(char)('\u3041' + rand.Next(0, 3096 - 3041 + 1))}");
+        
         for (int i = 0; i < 100; i++)
         {
-            possibleChars.Add($"{(char)('a' + rand.Next(0, 26))}");  // latin alphabet
-            // possibleChars.Add($"{rand.Next(0, 10)}");   // numbers
-            //possibleChars.Add($"{(char)(0x3041 + rand.Next(0, 0x3096 - 0x3041 + 1))}");  // Hiragana characters
-            //possibleChars.Add($"{(char)(0x30A1 + rand.Next(0, 0x30FA - 0x30A1 + 1))}");  // Katakana characters
+            possibleChars.Add($"{(char)('a' + rand.Next(0, 26))}");                         // latin alphabet
+            possibleChars.Add($"{(char)(0xFF61 + rand.Next(0, 96))}");                      // Half-width katakana characters
+            possibleChars.Add($"{(char)(0xFF61 + rand.Next(0, 96))}");
+            possibleChars.Add($"{(char)(0xFF61 + rand.Next(0, 96))}");
+            possibleChars.Add($"{rand.Next(0, 10)}");                                       // numbers
+            // possibleChars.Add($"{(char)(0x3041 + rand.Next(0, 0x3096 - 0x3041 + 1))}");  // Hiragana characters
+            // possibleChars.Add($"{(char)(0x30A1 + rand.Next(0, 0x30FA - 0x30A1 + 1))}");  // Katakana characters
+            
         }
 
         return possibleChars[rand.Next(0, possibleChars.Count)];
@@ -79,7 +83,7 @@ class WaterDrop : Label           // Class to create an individual rain of lette
                 line[i] = getRandomChar();
         }
 
-        if (line.Count > Console.WindowHeight)
+        if (line.Count > Console.WindowHeight + rand.Next(1, 15))
         {
             line[idx] = " ";  // Replace the character with a space
             idx++;
@@ -87,6 +91,7 @@ class WaterDrop : Label           // Class to create an individual rain of lette
             {
                 idx = 0;
                 line = new List<string>();
+                drop = false;
             }
             
         }
@@ -105,18 +110,9 @@ class WaterDrop : Label           // Class to create an individual rain of lette
 
     private bool updateLabel(MainLoop mainLoop)  // method to pass in the mainloop of each column
     {
-        // updateLine();
         if (updateDrop())
         {
             updateLine();
-            //if (line.Count > Console.WindowHeight)
-            //{
-            //    // line = new List<string>();
-            //    // line[0] = " ";
-            //    //line.Clear();
-            //    // line.RemoveAt(0);
-            //    drop = false;
-            //}
             this.Text = string.Join("", line);
         }
 
