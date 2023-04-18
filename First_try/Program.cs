@@ -26,9 +26,8 @@ class MatrixRain
     }
 }
 
-class WaterDrop : Label
+class WaterDrop : Label   // herencia
 {
-
     List<string> line = new List<string>();
     static int column = 0;
     static double v = 1;
