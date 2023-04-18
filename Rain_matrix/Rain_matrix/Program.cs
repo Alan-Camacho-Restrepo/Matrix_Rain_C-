@@ -19,10 +19,25 @@
 //Console.WriteLine("The result is {0:0.00}", result);
 
 using System;
-Random rand = new Random();
-int f = rand.Next(1,10);
 
-Console.WriteLine(f);
+class Program
+{
+    static void Main()
+    {
+        // Use ANSI escape codes to change text color
+        // Console.WriteLine("\u001b[31mo\u001b[0m");
+        List<string> a = new List<string>();
+        a.Add("A");
+        a.Add("B"); 
+        a.Add("C");
+
+        a[a.Count - 1] = $"\u001b[31m{a[a.Count-1]}";
+
+        Console.WriteLine(a[a.Count-1]);
+        Console.WriteLine(a[a.Count-2]);
+    }
+}
+
 
 
 

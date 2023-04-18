@@ -1,7 +1,8 @@
 ﻿using System;
 using Terminal.Gui;
 
-class Program{     // Principal class to contain the main method 
+class Program
+{     // Principal class to contain the main method 
 
 
     static void Main(string[] args)    // The main method where everything shows in terminal
@@ -11,10 +12,11 @@ class Program{     // Principal class to contain the main method
         // Get terminal window size
         var cols = Console.WindowWidth;
 
-        for (int i = 0; i < cols; i++){
+        for (int i = 0; i < cols; i++)
+        {
             var waterDrop = new WaterDrop(Application.MainLoop);
-            Application.Top.Add(waterDrop);  
-            }
+            Application.Top.Add(waterDrop);
+        }
 
         // Set finite time of running code in the window terminal
         Application.MainLoop.AddTimeout(    // Living time of programming
@@ -57,7 +59,7 @@ class WaterDrop : Label           // Class to create an individual rain of lette
     {
         List<string> possibleChars = new List<string>();
 
-        
+
         for (int i = 0; i < 100; i++)
         {
             possibleChars.Add($"{(char)('a' + rand.Next(0, 26))}");                         // latin alphabet
@@ -67,12 +69,12 @@ class WaterDrop : Label           // Class to create an individual rain of lette
             possibleChars.Add($"{rand.Next(0, 10)}");                                       // numbers
             // possibleChars.Add($"{(char)(0x3041 + rand.Next(0, 0x3096 - 0x3041 + 1))}");  // Hiragana characters
             // possibleChars.Add($"{(char)(0x30A1 + rand.Next(0, 0x30FA - 0x30A1 + 1))}");  // Katakana characters
-            
+
         }
 
         return possibleChars[rand.Next(0, possibleChars.Count)];
     }
-    
+
     private void updateLine()
     {
         line.Add(getRandomChar());
@@ -82,6 +84,8 @@ class WaterDrop : Label           // Class to create an individual rain of lette
             if (rand.NextDouble() < 0.4)
                 line[i] = getRandomChar();
         }
+
+        // line[line.Count - 1] = $"\u001b[31m{line[line.Count - 1]}\u001b[0m";
 
         if (line.Count > Console.WindowHeight + rand.Next(1, 15))
         {
@@ -93,14 +97,14 @@ class WaterDrop : Label           // Class to create an individual rain of lette
                 line = new List<string>();
                 drop = false;
             }
-            
+
         }
     }
 
 
     bool updateDrop()
     {
-        if(rand.NextDouble() > 0.99)
+        if (rand.NextDouble() > 0.99)
         {
             drop = true;
         }

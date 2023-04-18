@@ -1,15 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "7ocdL5ZRCU65S/vwSYIG9gK2SEx9tB6HyKo2xZ2P/Y/ZJi8u1CGUNdETI/FpV5Er4FRsKFORH0mpkoiY6Nzb9Q==",
+  "dgSpecHash": "1a+iv1awfquY7ve3SZf47LERatV+jbv+8WAy/xkb7vMwxc/PTuZ2a/dV2jwzZOyq1LDaUd+uT7Y5Wscn5eE7Wg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Alan\\OneDrive\\Documentos\\Skills\\C#\\Matrix_Rain_C-\\RainMatrixDone\\guics-test.csproj",
+  "projectFilePath": "C:\\Users\\Alan\\OneDrive\\Documentos\\Skills\\C#\\Matrix_Rain_C-\\RainMatrixDone\\RainMatrixDone.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Alan\\.nuget\\packages\\microsoft.dotnet.platformabstractions\\3.1.6\\microsoft.dotnet.platformabstractions.3.1.6.nupkg.sha512",
     "C:\\Users\\Alan\\.nuget\\packages\\nstack.core\\1.0.7\\nstack.core.1.0.7.nupkg.sha512",
     "C:\\Users\\Alan\\.nuget\\packages\\system.codedom\\7.0.0\\system.codedom.7.0.0.nupkg.sha512",
     "C:\\Users\\Alan\\.nuget\\packages\\system.management\\7.0.0\\system.management.7.0.0.nupkg.sha512",
     "C:\\Users\\Alan\\.nuget\\packages\\system.valuetuple\\4.5.0\\system.valuetuple.4.5.0.nupkg.sha512",
-    "C:\\Users\\Alan\\.nuget\\packages\\terminal.gui\\1.10.0\\terminal.gui.1.10.0.nupkg.sha512"
+    "C:\\Users\\Alan\\.nuget\\packages\\terminal.gui\\1.10.1\\terminal.gui.1.10.1.nupkg.sha512"
   ],
   "logs": []
 }

@@ -1,7 +1,7 @@
 {
   "version": 3,
   "targets": {
-    "net7.0": {
+    "net6.0": {
       "Microsoft.DotNet.PlatformAbstractions/3.1.6": {
         "type": "package",
         "compile": {
@@ -30,12 +30,12 @@
       "System.CodeDom/7.0.0": {
         "type": "package",
         "compile": {
-          "lib/net7.0/System.CodeDom.dll": {
+          "lib/net6.0/System.CodeDom.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net7.0/System.CodeDom.dll": {
+          "lib/net6.0/System.CodeDom.dll": {
             "related": ".xml"
           }
         },
@@ -49,12 +49,12 @@
           "System.CodeDom": "7.0.0"
         },
         "compile": {
-          "lib/net7.0/System.Management.dll": {
+          "lib/net6.0/System.Management.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net7.0/System.Management.dll": {
+          "lib/net6.0/System.Management.dll": {
             "related": ".xml"
           }
         },
@@ -62,7 +62,7 @@
           "buildTransitive/net6.0/_._": {}
         },
         "runtimeTargets": {
-          "runtimes/win/lib/net7.0/System.Management.dll": {
+          "runtimes/win/lib/net6.0/System.Management.dll": {
             "assetType": "runtime",
             "rid": "win"
           }
@@ -77,7 +77,7 @@
           "lib/netcoreapp2.0/_._": {}
         }
       },
-      "Terminal.Gui/1.10.0": {
+      "Terminal.Gui/1.10.1": {
         "type": "package",
         "dependencies": {
           "Microsoft.DotNet.PlatformAbstractions": "3.1.6",
@@ -85,23 +85,23 @@
           "System.Management": "7.0.0"
         },
         "compile": {
-          "lib/net6.0/Terminal.Gui.dll": {
+          "lib/netstandard2.1/Terminal.Gui.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net6.0/Terminal.Gui.dll": {
+          "lib/netstandard2.1/Terminal.Gui.dll": {
             "related": ".xml"
           }
         },
         "resource": {
-          "lib/net6.0/fr-FR/Terminal.Gui.resources.dll": {
+          "lib/netstandard2.1/fr-FR/Terminal.Gui.resources.dll": {
             "locale": "fr-FR"
           },
-          "lib/net6.0/ja-JP/Terminal.Gui.resources.dll": {
+          "lib/netstandard2.1/ja-JP/Terminal.Gui.resources.dll": {
             "locale": "ja-JP"
           },
-          "lib/net6.0/pt-PT/Terminal.Gui.resources.dll": {
+          "lib/netstandard2.1/pt-PT/Terminal.Gui.resources.dll": {
             "locale": "pt-PT"
           }
         }
@@ -242,10 +242,10 @@
         "version.txt"
       ]
     },
-    "Terminal.Gui/1.10.0": {
-      "sha512": "u/t/8TlWLNSS7Dp1DRDWusHzgqC+qn8E4RtV52NvdGOjgSW0EdjBqwjuQar9fiRdMTBVIOHeM/f0YosOIoXkSQ==",
+    "Terminal.Gui/1.10.1": {
+      "sha512": "ZsNwal1onlYUCDDYkkQjsiMonHWm8cSrPkIeV7Kuv0KQF9bcpVizuHjTfgqDNZUVus0GgISLH/x5IkkT7KfGZw==",
       "type": "package",
-      "path": "terminal.gui/1.10.0",
+      "path": "terminal.gui/1.10.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -255,25 +255,25 @@
         "lib/net472/fr-FR/Terminal.Gui.resources.dll",
         "lib/net472/ja-JP/Terminal.Gui.resources.dll",
         "lib/net472/pt-PT/Terminal.Gui.resources.dll",
-        "lib/net6.0/Terminal.Gui.dll",
-        "lib/net6.0/Terminal.Gui.xml",
-        "lib/net6.0/fr-FR/Terminal.Gui.resources.dll",
-        "lib/net6.0/ja-JP/Terminal.Gui.resources.dll",
-        "lib/net6.0/pt-PT/Terminal.Gui.resources.dll",
-        "lib/netstandard2.0/Terminal.Gui.dll",
-        "lib/netstandard2.0/Terminal.Gui.xml",
-        "lib/netstandard2.0/fr-FR/Terminal.Gui.resources.dll",
-        "lib/netstandard2.0/ja-JP/Terminal.Gui.resources.dll",
-        "lib/netstandard2.0/pt-PT/Terminal.Gui.resources.dll",
+        "lib/net7.0/Terminal.Gui.dll",
+        "lib/net7.0/Terminal.Gui.xml",
+        "lib/net7.0/fr-FR/Terminal.Gui.resources.dll",
+        "lib/net7.0/ja-JP/Terminal.Gui.resources.dll",
+        "lib/net7.0/pt-PT/Terminal.Gui.resources.dll",
+        "lib/netstandard2.1/Terminal.Gui.dll",
+        "lib/netstandard2.1/Terminal.Gui.xml",
+        "lib/netstandard2.1/fr-FR/Terminal.Gui.resources.dll",
+        "lib/netstandard2.1/ja-JP/Terminal.Gui.resources.dll",
+        "lib/netstandard2.1/pt-PT/Terminal.Gui.resources.dll",
         "logo.png",
-        "terminal.gui.1.10.0.nupkg.sha512",
+        "terminal.gui.1.10.1.nupkg.sha512",
         "terminal.gui.nuspec"
       ]
     }
   },
   "projectFileDependencyGroups": {
-    "net7.0": [
-      "Terminal.Gui >= 1.10.0"
+    "net6.0": [
+      "Terminal.Gui >= 1.*"
     ]
   },
   "packageFolders": {
@@ -282,9 +282,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Alan\\OneDrive\\Documentos\\Skills\\C#\\Matrix_Rain_C-\\RainMatrixDone\\guics-test.csproj",
-      "projectName": "guics-test",
-      "projectPath": "C:\\Users\\Alan\\OneDrive\\Documentos\\Skills\\C#\\Matrix_Rain_C-\\RainMatrixDone\\guics-test.csproj",
+      "projectUniqueName": "C:\\Users\\Alan\\OneDrive\\Documentos\\Skills\\C#\\Matrix_Rain_C-\\RainMatrixDone\\RainMatrixDone.csproj",
+      "projectName": "RainMatrixDone",
+      "projectPath": "C:\\Users\\Alan\\OneDrive\\Documentos\\Skills\\C#\\Matrix_Rain_C-\\RainMatrixDone\\RainMatrixDone.csproj",
       "packagesPath": "C:\\Users\\Alan\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Alan\\OneDrive\\Documentos\\Skills\\C#\\Matrix_Rain_C-\\RainMatrixDone\\obj\\",
       "projectStyle": "PackageReference",
@@ -293,15 +293,15 @@
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
-        "net7.0"
+        "net6.0"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "net7.0": {
-          "targetAlias": "net7.0",
+        "net6.0": {
+          "targetAlias": "net6.0",
           "projectReferences": {}
         }
       },
@@ -312,12 +312,12 @@
       }
     },
     "frameworks": {
-      "net7.0": {
-        "targetAlias": "net7.0",
+      "net6.0": {
+        "targetAlias": "net6.0",
         "dependencies": {
           "Terminal.Gui": {
             "target": "Package",
-            "version": "[1.10.0, )"
+            "version": "[1.*, )"
           }
         },
         "imports": [
