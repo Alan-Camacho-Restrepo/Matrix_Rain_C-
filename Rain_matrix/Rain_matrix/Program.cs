@@ -18,25 +18,59 @@
 
 //Console.WriteLine("The result is {0:0.00}", result);
 
+//using System;
+
+//class Program
+//{
+//    static void Main()
+//    {
+//        // Use ANSI escape codes to change text color
+//        // Console.WriteLine("\u001b[31mo\u001b[0m");
+//        List<string> a = new List<string>();
+//        a.Add("A");
+//        a.Add("B"); 
+//        a.Add("C");
+
+//        a[a.Count - 1] = $"\u001b[31m{a[a.Count-1]}";
+
+//        Console.WriteLine(a[a.Count-1]);
+//        Console.WriteLine(a[a.Count-2]);
+//    }
+//}
+
+// C# program to illustrate the
+// ForegroundColor property
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+
 
 class Program
 {
-    static void Main()
+
+    static void Main(string[] args)
     {
-        // Use ANSI escape codes to change text color
-        // Console.WriteLine("\u001b[31mo\u001b[0m");
-        List<string> a = new List<string>();
-        a.Add("A");
-        a.Add("B"); 
-        a.Add("C");
 
-        a[a.Count - 1] = $"\u001b[31m{a[a.Count-1]}";
+        // Display current Foreground color
+        Console.WriteLine("Default Foreground Color: {0}",
+                                Console.ForegroundColor);
 
-        Console.WriteLine(a[a.Count-1]);
-        Console.WriteLine(a[a.Count-2]);
+        // Set the Foreground color to blue
+        Console.ForegroundColor
+            = ConsoleColor.Blue;
+
+        // Display current Foreground color
+        Console.WriteLine("Changed Foreground Color: {0}",
+                                Console.ForegroundColor);
+
+
     }
 }
+
+
 
 
 
