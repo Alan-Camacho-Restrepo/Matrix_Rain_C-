@@ -1,16 +1,15 @@
 ﻿using System;
 using Terminal.Gui;
 
-class Program
-{     // Principal class to contain the main method 
-
+class Program   // Principal class to contain the main method
+{      
 
     static void Main(string[] args)    // The main method where everything shows in terminal
     {
         Application.Init();     // Initialize the terminal.gui application to show in terminal
 
-        // Get terminal window size
-        var cols = Console.WindowWidth;
+        
+        var cols = Console.WindowWidth;  // Get terminal window size
 
         for (int i = 0; i < cols; i++)
         {
@@ -28,6 +27,8 @@ class Program
             }
         );
 
+        // If you want to rain the matrix code without time ("infinite time") you should delete or comment the above aplication.mainloop
+
         Application.Run();
         Application.Shutdown();
 
@@ -36,7 +37,7 @@ class Program
 }
 
 
-class WaterDrop : Label           // Class to create an individual rain of letters, with special characters and random drop speed
+class WaterDrop : Label           // Class to create an individual rain of letters, with special characters and random drop speed (it inherits the label class)
 {
     List<string> line = new List<string>();
     static int column = 0;       // inmutable variable to change the value in each call of the method
@@ -47,7 +48,6 @@ class WaterDrop : Label           // Class to create an individual rain of lette
     public WaterDrop(MainLoop mainLoop) : base("", TextDirection.TopBottom_LeftRight)
     {
         this.X = column;    // like self in python (this)
-        // this.ColorScheme = Colors.TopLevel;
         column++;
         mainLoop.AddTimeout(
                 TimeSpan.FromSeconds(0.3),   // random drop speed for each column in terminal
@@ -60,7 +60,7 @@ class WaterDrop : Label           // Class to create an individual rain of lette
         List<string> possibleChars = new List<string>();
 
 
-        for (int i = 0; i < 100; i++)
+        for (int i = 0; i < 50; i++)
         {
             possibleChars.Add($"{(char)('a' + rand.Next(0, 26))}");                         // latin alphabet
             possibleChars.Add($"{(char)(0xFF61 + rand.Next(0, 96))}");                      // Half-width katakana characters
@@ -85,6 +85,7 @@ class WaterDrop : Label           // Class to create an individual rain of lette
                 line[i] = getRandomChar();
         }
 
+        // To future put colors on the tail of the each column rain
         // line[line.Count - 1] = $"\u001b[31m{line[line.Count - 1]}\u001b[0m";
 
         if (line.Count > Console.WindowHeight + rand.Next(1, 15))
